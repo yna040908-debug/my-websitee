@@ -1,0 +1,284 @@
+/* Скидання базових стилів */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f4f7f2;
+    color: #0f172a;
+    line-height: 1.6;
+}
+
+/* Кольори теми */
+:root {
+    --green-main: #15803d;      /* насичений зелений */
+    --green-soft: #bbf7d0;      /* м’який зелений фон */
+    --yellow-main: #facc15;     /* яскравий жовтий */
+    --yellow-soft: #fef9c3;     /* м’який жовтий фон */
+    --border-soft: #e5e7eb;
+}
+
+/* Шапка сайту */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #ffffffee;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-soft);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 4vw;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    color: var(--green-main);
+}
+
+.main-nav {
+    display: flex;
+    gap: 0.6rem;
+}
+
+/* Кнопки-навігація */
+
+.nav-btn {
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: #ffffff;
+    color: #14532d;
+    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease,
+                transform 0.1s ease, border-color 0.15s ease;
+}
+
+.nav-btn:hover {
+    background: var(--green-soft);
+    border-color: #bbf7d0;
+    box-shadow: 0 6px 14px rgba(15, 118, 110, 0.15);
+    transform: translateY(-1px);
+}
+
+.nav-btn.active {
+    background: var(--green-main);
+    color: #fefce8;
+    border-color: #166534;
+}
+
+/* Контейнер */
+
+.container {
+    max-width: 1000px;
+    margin: 2rem auto 3rem;
+    padding: 0 1rem;
+}
+
+/* Hero-блок */
+
+.hero {
+    margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #052e16;
+}
+
+.hero-subtitle {
+    color: #4b5563;
+    font-size: 0.98rem;
+}
+
+/* Карточки та сітки */
+
+.card {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+    border: 1px solid var(--border-soft);
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #064e3b;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Списки, теги, таймлайн */
+
+.info-list {
+    list-style: none;
+    margin-top: 0.5rem;
+}
+
+.info-list li {
+    margin-bottom: 0.4rem;
+}
+
+.info-list.numbered {
+    counter-reset: item;
+}
+
+.info-list.numbered li {
+    position: relative;
+    padding-left: 1.8rem;
+}
+
+.info-list.numbered li::before {
+    counter-increment: item;
+    content: counter(item) ".";
+    position: absolute;
+    left: 0;
+    top: 0.15rem;
+    font-weight: 600;
+    color: var(--green-main);
+}
+
+.tag-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+}
+
+.tag-list li {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background: var(--green-soft);
+    color: #14532d;
+}
+
+/* Таймлайн */
+
+.timeline {
+    list-style: none;
+    margin-top: 0.5rem;
+}
+
+.timeline li {
+    border-left: 2px solid var(--green-soft);
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.timeline li::before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 0.3rem;
+    width: 10px;
+    height: 10px;
+    background: var(--yellow-main);
+    border-radius: 50%;
+}
+
+.timeline-title {
+    font-weight: 600;
+}
+
+.timeline-subtitle {
+    font-size: 0.92rem;
+    color: #4b5563;
+}
+
+.timeline-meta {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-bottom: 0.3rem;
+}
+
+/* Таблиця для сторінки економічної безпеки */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 0.75rem;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.data-table thead {
+    background: var(--yellow-soft);
+}
+
+.data-table th,
+.data-table td {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-soft);
+    text-align: left;
+}
+
+.data-table th {
+    font-weight: 600;
+    color: #713f12;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+/* Підказка */
+
+.hint {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+/* Футер */
+
+.site-footer {
+    border-top: 1px solid var(--border-soft);
+    padding: 1rem 4vw;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #6b7280;
+    background: #fefce8;
+}
+
+/* Адаптивність */
+
+@media (max-width: 768px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+}
